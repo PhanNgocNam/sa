@@ -257,40 +257,48 @@ function RegisterForCourse() {
                             </tr>
                         </thead>
                         <tbody>
-                            {listCourse.map((item, index) => {
-                                return (
-                                    <tr
-                                        key={index}
-                                        onClick={() =>
-                                            handleClickCourse(item.id)
-                                        }
-                                        style={{
-                                            backgroundColor:
-                                                selectedCourseId === item.id
-                                                    ? "#fff6b0"
-                                                    : "",
-                                        }}
-                                    >
-                                        <td>{index + 1}</td>
-                                        <td>{item.id}</td>
-                                        <td>{item.courseCode}</td>
-                                        <td>{item.name}</td>
-                                        <td>{item.credits}</td>
-                                        <td>
-                                            {item.typeCourse == 1 ? (
-                                                <FaCircleCheck
-                                                    style={{ color: "green" }}
-                                                />
-                                            ) : (
-                                                <FaCircleXmark
-                                                    style={{ color: "red" }}
-                                                />
-                                            )}
-                                        </td>
-                                        <td>{item.hasPrerequisite}</td>
-                                    </tr>
-                                );
-                            })}
+                            {selectedOption === "HK1 (2024-2025)" ? (
+                                listCourse.map((item, index) => {
+                                    return (
+                                        <tr
+                                            key={index}
+                                            onClick={() =>
+                                                handleClickCourse(item.id)
+                                            }
+                                            style={{
+                                                backgroundColor:
+                                                    selectedCourseId === item.id
+                                                        ? "#fff6b0"
+                                                        : "",
+                                            }}
+                                        >
+                                            <td>{index + 1}</td>
+                                            <td>{item.id}</td>
+                                            <td>{item.courseCode}</td>
+                                            <td>{item.name}</td>
+                                            <td>{item.credits}</td>
+                                            <td>
+                                                {item.typeCourse == 1 ? (
+                                                    <FaCircleCheck
+                                                        style={{
+                                                            color: "green",
+                                                        }}
+                                                    />
+                                                ) : (
+                                                    <FaCircleXmark
+                                                        style={{ color: "red" }}
+                                                    />
+                                                )}
+                                            </td>
+                                            <td>{item.hasPrerequisite}</td>
+                                        </tr>
+                                    );
+                                })
+                            ) : (
+                                <p style={{ color: "red" }}>
+                                    Học kì này chưa được phép đăng ký
+                                </p>
+                            )}
                         </tbody>
                     </table>
                 </div>
