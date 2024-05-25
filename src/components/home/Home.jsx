@@ -97,7 +97,7 @@ function Home() {
                     </div>
                     <div className="image">
                         <img
-                            src="../../../public/user.png"
+                            src="/user.png"
                             alt="Ảnh đại diện"
                             style={{ width: "100%", height: "100%" }}
                         />
