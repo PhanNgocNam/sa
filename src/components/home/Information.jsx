@@ -1,12 +1,13 @@
-import { useState, useEffect, useContext } from "react";
+import { useNavigate, useLocation, Outlet } from "react-router-dom";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { aws } from "../../utils/server.config";
 
 function Information() {
+    let location = useLocation();
     const [student, setStudent] = useState({});
     const [major, setMajor] = useState({});
     const [department, setDepartment] = useState({});
-
     useEffect(() => {
         let getApiStudentById = async () => {
             let datas = await axios.get(
@@ -15,8 +16,7 @@ function Information() {
                     auth: JSON.parse(localStorage.getItem("crudentials")),
                 }
             );
-
-            setStudent(datas.data?.userId);
+            setStudent(datas.data.userId);
             setMajor(datas.data.userId?.majorId);
             setDepartment(datas.data.userId?.majorId.departmentId);
         };

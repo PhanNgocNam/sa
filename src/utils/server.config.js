@@ -1,5 +1,5 @@
 export const aws = {
-    host: "3.0.100.23",
+    host: "13.228.27.148",
     get url() {
         return `http://${this.host}`;
     },
